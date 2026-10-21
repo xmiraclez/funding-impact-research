@@ -20,6 +20,8 @@ This is not investment advice.
 
 If the network is unavailable, the notebook reads the snapshots in `data/`.
 
+`data/coinalyze_btc_funding_averaged.csv` is a separate series: every BTC perpetual on Coinalyze, blended by open interest and by one vote per exchange. The notebook's last study reads that file. It does not contain a Coinalyze key.
+
 ## Run locally
 
 Python 3.11 or newer.
