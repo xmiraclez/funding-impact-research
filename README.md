@@ -6,7 +6,7 @@ Run `funding_fear_greed.ipynb` from top to bottom. Dates and thresholds live in 
 
 The post text is still computed on 21 January 2020 through 9 September 2024 and matches the screenshot: t and p are −0.32 and 0.75 for fear, 1.2 and 0.22 for greed, and 2.1 and 0.035 for negative funding. The mean next-day returns in that text are 0.75% and 0.09%.
 
-Further down, the same funding rule is recomputed on three windows: the original window, the stretch from 10 September 2024 through the last available day, and the full history. `END = None` reads data through the end of the Binance archive.
+After the data load, the same four conditions are studied three times, each in its own section: the original window, the stretch from 10 September 2024 through the last available day, and the full history. Each section has its own t-test tables, its own return histograms, and its own charts. The three windows are not drawn on one figure. `END = None` reads data through the end of the Binance archive.
 
 The greed threshold in this calculation is an index strictly above 70. The screenshot caption “index > 80” does not produce these figures.
 
