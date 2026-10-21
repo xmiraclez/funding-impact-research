@@ -1,28 +1,28 @@
-# Отрицательный фандинг биткоина и индекс страха и жадности
+# Bitcoin negative funding and the fear and greed index
 
-Ноутбук заново считает пост про дневную доходность BTC в дни экстремального страха, экстремальной жадности и отрицательного фандинга.
+The notebook recomputes the post about next-day BTC returns on days of extreme fear, extreme greed, and negative funding.
 
-Файл для запуска: `funding_fear_greed.ipynb`. Открой его и выполни все ячейки сверху вниз. Менять расчёт нужно в первой ячейке с параметрами: даты окна и пороги.
+Run `funding_fear_greed.ipynb` from top to bottom. Dates and thresholds live in the first code cell.
 
-Текст поста по-прежнему считается на окне 21 января 2020 — 9 сентября 2024 и совпадает со скриншотом: T и p для страха −0.32 и 0.75, для жадности 1.2 и 0.22, для отрицательного фандинга 2.1 и 0.035, средние доходности 0.75% и 0.09%.
+The post text is still computed on 21 January 2020 through 9 September 2024 and matches the screenshot: t and p are −0.32 and 0.75 for fear, 1.2 and 0.22 for greed, and 2.1 and 0.035 for negative funding. The mean next-day returns in that text are 0.75% and 0.09%.
 
-Ниже в ноутбуке то же правило для фандинга пересчитано на трёх кусках: старое окно, отрезок с 10 сентября 2024 до последнего доступного дня и вся история целиком. `END = None` берёт данные до конца архива Binance.
+Further down, the same funding rule is recomputed on three windows: the original window, the stretch from 10 September 2024 through the last available day, and the full history. `END = None` reads data through the end of the Binance archive.
 
-Порог жадности в этом расчёте — индекс строго выше 70. Подпись «index > 80» на скриншоте с этими цифрами не сходится.
+The greed threshold in this calculation is an index strictly above 70. The screenshot caption “index > 80” does not produce these figures.
 
-Это не инвестиционная рекомендация.
+This is not investment advice.
 
-## Откуда данные
+## Data sources
 
-- Цена: дневной close BTC-USD, Yahoo Finance.
-- Индекс страха и жадности: [alternative.me](https://api.alternative.me/fng/).
-- Фандинг: публичные месячные архивы Binance USD-M, `BTCUSDT`, последний 8-часовой принт каждого UTC-дня. Это тот же знак и тот же ряд, который в старом ноутбуке лежал как close в Coinalyze. Ключ Coinalyze не нужен.
+- Price: daily BTC-USD close, Yahoo Finance.
+- Fear and greed index: [alternative.me](https://api.alternative.me/fng/).
+- Funding: public monthly archives of Binance USD-M `BTCUSDT`, the last 8-hour print of each UTC day. That is the same sign and the same series the old notebook stored as the Coinalyze close. No Coinalyze key is required.
 
-Если сеть недоступна, ноутбук читает снимки из `data/`.
+If the network is unavailable, the notebook reads the snapshots in `data/`.
 
-## Как запустить локально
+## Run locally
 
-Нужен Python 3.11+.
+Python 3.11 or newer.
 
 ```bash
 python3 -m venv .venv
@@ -31,9 +31,9 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
-Открой `funding_fear_greed.ipynb` и выбери Run All.
+Open `funding_fear_greed.ipynb` and choose Run All.
 
-Выполнить без интерфейса:
+Run without the interface:
 
 ```bash
 python3 -m jupyter nbconvert --to notebook --execute --inplace funding_fear_greed.ipynb
